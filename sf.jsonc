@@ -1,0 +1,11 @@
+{
+  "$schema": "https://spacefast.com/schemas/sf.json",
+  "name": "Dugout 1836",
+  "runtime": {
+    "kind": "zero",
+    "server": "server/index.ts",
+    "client": "client/index.tsx"
+  }
+  // Crons get added here in Stage 4, e.g.:
+  // "crons": [{ "path": "/api/sync?token={{ vars.CRON_SECRET }}", "schedule": "0 8 * * *" }]
+}

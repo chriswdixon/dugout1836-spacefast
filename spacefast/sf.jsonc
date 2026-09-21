@@ -1,0 +1,14 @@
+{
+  "$schema": "https://spacefast.com/schemas/sf.json",
+  "name": "Dugout 1836",
+  "runtime": {
+    "kind": "functions",
+    "entry": "handler.ts",
+    "database": true
+  }
+  // Source sync runs via POST/GET /api/sync (secret in the x-sync-secret header
+  // or ?token=, from the SYNC_SECRET env var). Native Spacefast crons require a
+  // LITERAL path (no vars, no query), so a secret-bearing cron path would have
+  // to be committed; instead schedule the sync from an external scheduler
+  // (e.g. a launchd/cron curl with the secret in a header, kept out of git).
+}

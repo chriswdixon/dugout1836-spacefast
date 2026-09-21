@@ -1,0 +1,232 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: var(--radius);
+  --radius-md: var(--radius);
+  --radius-lg: var(--radius);
+  --radius-xl: var(--radius);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-primary-glow: var(--primary-glow);
+  --color-cream: var(--cream);
+  --color-success: var(--success);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-seam: var(--seam);
+  --color-ticket: var(--ticket);
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-sans: "Work Sans", "Barlow", ui-sans-serif, system-ui, sans-serif;
+  --font-print: "Instrument Serif", Georgia, serif;
+  --font-work: "Work Sans", "Barlow", ui-sans-serif, system-ui, sans-serif;
+
+}
+
+
+:root {
+  --radius: 20px;
+  /* Vintage ballpark program: cream paper, navy ink, seam red, ticket gold */
+  --background: oklch(0.93 0.028 88);
+  --foreground: oklch(0.3 0.06 262);
+  --card: oklch(0.97 0.014 88);
+  --card-foreground: oklch(0.3 0.06 262);
+  --popover: oklch(0.97 0.014 88);
+  --popover-foreground: oklch(0.3 0.06 262);
+  --primary: oklch(0.47 0.14 30);
+  --primary-foreground: oklch(0.96 0.02 88);
+  --primary-glow: oklch(0.7 0.12 82);
+  --secondary: oklch(0.88 0.03 88);
+  --secondary-foreground: oklch(0.3 0.06 262);
+  --muted: oklch(0.89 0.026 88);
+  --muted-foreground: oklch(0.45 0.035 262);
+  --accent: oklch(0.7 0.12 82);
+  --accent-foreground: oklch(0.97 0.014 88);
+  --destructive: oklch(0.52 0.19 27);
+  --destructive-foreground: oklch(0.97 0.014 88);
+  --success: oklch(0.52 0.12 150);
+  --cream: oklch(0.97 0.014 88);
+  --border: oklch(0.3 0.06 262 / 0.18);
+  --input: oklch(0.3 0.06 262 / 0.28);
+  --ring: oklch(0.47 0.14 30);
+  --chart-1: oklch(0.47 0.14 30);
+  --chart-2: oklch(0.7 0.12 82);
+  --chart-3: oklch(0.52 0.12 150);
+  --chart-4: oklch(0.3 0.06 262);
+  --chart-5: oklch(0.6 0.14 45);
+  --sidebar: oklch(0.96 0.02 88);
+  --sidebar-foreground: oklch(0.3 0.06 262);
+  --sidebar-primary: oklch(0.47 0.14 30);
+  --sidebar-primary-foreground: oklch(0.96 0.02 88);
+  --sidebar-accent: oklch(0.88 0.03 88);
+  --sidebar-accent-foreground: oklch(0.3 0.06 262);
+  --sidebar-border: oklch(0.3 0.06 262 / 0.18);
+  --sidebar-ring: oklch(0.47 0.14 30);
+
+  /* Baseball accents: seam stitching (ball red) and chalk (faded ink) */
+  --stitch: oklch(0.47 0.14 30 / 0.65);
+  --chalk: oklch(0.3 0.06 262 / 0.16);
+
+  /* Vintage ballpark print palette */
+  --paper: oklch(0.93 0.028 88);
+  --ink: oklch(0.3 0.06 262);
+  --seam: oklch(0.47 0.14 30);
+  --ticket: oklch(0.7 0.12 82);
+
+  --gradient-gold: linear-gradient(135deg, var(--seam), var(--ticket));
+  --gradient-navy: linear-gradient(
+    160deg,
+    oklch(0.98 0.012 88),
+    oklch(0.94 0.024 88)
+  );
+  --shadow-panel: 0 12px 30px -20px oklch(0.3 0.06 262 / 0.4);
+  --shadow-gold: 0 10px 30px -16px oklch(0.47 0.14 30 / 0.35);
+}
+
+.dark {
+  --background: oklch(0.93 0.028 88);
+  --foreground: oklch(0.3 0.06 262);
+}
+
+
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: 0;
+  }
+}
+
+@utility eyebrow {
+  font-family: var(--font-work);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--seam);
+}
+
+@utility section-title {
+  font-family: var(--font-print);
+  text-transform: uppercase;
+  letter-spacing: 0;
+  position: relative;
+  padding-bottom: 0.5rem;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 3rem;
+    background: var(--gradient-gold);
+  }
+}
+
+
+@utility panel {
+  background: var(--gradient-navy);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-panel);
+}
+
+/* Baseball seam stitch — a horizontal line of short red dashes, like laces */
+@utility stitch-x {
+  height: 2px;
+  background-image: linear-gradient(90deg, var(--stitch) 55%, transparent 45%);
+  background-size: 14px 2px;
+  background-repeat: repeat-x;
+}
+
+/* Same stitching, vertical */
+@utility stitch-y {
+  width: 2px;
+  background-image: linear-gradient(180deg, var(--stitch) 55%, transparent 45%);
+  background-size: 2px 14px;
+  background-repeat: repeat-y;
+}
+
+/* Faded chalk line — like a freshly dragged basepath */
+@utility chalk-x {
+  height: 2px;
+  background-image: linear-gradient(90deg, var(--chalk) 70%, transparent 30%);
+  background-size: 22px 2px;
+  background-repeat: repeat-x;
+}
+
+/* Small rotated-square diamond marker */
+@utility diamond-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  transform: rotate(45deg);
+  background: var(--color-primary);
+}
