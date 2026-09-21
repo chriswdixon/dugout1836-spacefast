@@ -13,7 +13,7 @@ import {
   tallyFor,
 } from "@/lib/portal-data";
 import fieldDusk from "@/assets/field-dusk.jpg";
-import squadPhoto from "@/assets/squad-photo.jpg.asset.json";
+import squadPhoto from "@/assets/squad-photo.jpg";
 
 export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
@@ -418,10 +418,10 @@ function Dashboard() {
                 1836 Roughriders
               </span>
             </div>
-            <div className="relative min-h-0 lg:flex-1">
+            <div className="relative min-h-0 aspect-[3/2] lg:aspect-auto lg:flex-1">
               <img
                 ref={squadImgRef}
-                src={squadPhoto.url}
+                src={squadPhoto}
                 alt="1836 Roughriders team photo"
                 loading="lazy"
                 className="absolute inset-0 size-full rounded-sm object-cover object-[center_35%]"
